@@ -3,10 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <title>Title</title>
+  <script src="js/jquery-2.1.4.min.js"></script>
 </head>
 <body>
-<div id="mun"></div>
+<div class="mun">1000</div>
+<div class="mun">15600</div>
+<div class="mun">1345600</div>
+<div class="mun">1131115600</div>
+<div class="mun">113115600</div>
 <script type="text/javascript">
+  var $munVal = $('.mun')
+  for (var i = 0; i < $munVal.length; i++) {
+    console.log($munVal.eq(i).html())
+
+    if ($munVal.eq(i).html().length >= 5 && $munVal.eq(i).html().length < 9) {
+      $('.mun').eq(i).html(($munVal.eq(i).html()/10000).toFixed(1) + '万次')
+    }
+    if ($munVal.eq(i).html().length >= 9) {
+      console.log($munVal.eq(i).html())
+      $('.mun').eq(i).html(($munVal.eq(i).html()/100000000).toFixed(1) + '亿次')
+    }
+  }
+
 </script>
 </body>
 </html>
